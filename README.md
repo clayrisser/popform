@@ -1,16 +1,41 @@
 # popform
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+Autopopulate and submit web forms
 
-Describe popform here.
+## Usage
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+```sh
+npm install --save popform
+```
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+```js
+import popform from 'popform';
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+const config = [
+  {
+    delay: 10000, // wait for the page to load
+    fields: { // fields to populate
+      username: {
+        value: 'some-username'
+      },
+      password: 'some-password'
+    },
+    elements: [ // elements to modify
+      {
+        query: '.box',
+        style: {
+          backgroundColor: 'blue'
+        }
+      }
+    ],
+    submit: '#submit' // location of submit button
+  },
+  {
+    // Autopopulate second form after first form is submitted
+  }
+];
+  
+popform(config).then(() => {
+  console.log('Form autopopulated and submitted');
+});
+```
