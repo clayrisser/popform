@@ -18,7 +18,7 @@ const config = [
       username: {
         value: 'some-username'
       },
-      password: 'some-password'
+      password: 'some-password' // string assumed to be value
     },
     elements: [ // elements to modify
       {
