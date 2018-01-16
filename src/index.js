@@ -3,11 +3,11 @@ import _ from 'lodash';
 export default async (config) => {
   if (_.isArray(config)) {
     for (let configInstance of config) {
-      await new Promise(r => setTimeout(r, configInstance.delay || 3000));
+      await new Promise(r => setTimeout(r, configInstance.delay || 0));
       popform(configInstance);
     };
   } else {
-    await new Promise(r => setTimeout(r, config.delay || 3000));
+    await new Promise(r => setTimeout(r, config.delay || 0));
     popform(config);
   }
 }
