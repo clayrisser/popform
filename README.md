@@ -2,6 +2,8 @@
 
 Autopopulate and submit web forms
 
+![](assets/popform.png)
+
 ## Usage
 
 ```sh
